@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module PageRanker</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>PageRanker</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:z%3A%5Cassignment2%5Cprograms%5Csubmittables2%5Cpageranker.py">z:\assignment2\programs\submittables2\pageranker.py</a></font></td></tr></table>
+    <p><tt>This&nbsp;program&nbsp;ranks&nbsp;all&nbsp;the&nbsp;6012&nbsp;web&nbsp;pages<br>
+in&nbsp;the&nbsp;dataset&nbsp;of&nbsp;hollins&nbsp;university,<br>
+according&nbsp;to&nbsp;the&nbsp;Page&nbsp;Algorithm<br>
+Then&nbsp;displays&nbsp;graphs&nbsp;of&nbsp;the&nbsp;nodes&nbsp;and&nbsp;their&nbsp;edges&nbsp;in&nbsp;these&nbsp;variations:<br>
+It&nbsp;takes&nbsp;approximately&nbsp;105s&nbsp;for&nbsp;the&nbsp;program&nbsp;to&nbsp;page&nbsp;rank&nbsp;all&nbsp;the&nbsp;6012&nbsp;links&nbsp;in&nbsp;this&nbsp;corpus</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="linecache.html">linecache</a><br>
+</td><td width="25%" valign=top><a href="networkx.html">networkx</a><br>
+</td><td width="25%" valign=top><a href="matplotlib.pyplot.html">matplotlib.pyplot</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-converge"><strong>converge</strong></a>(rnew, rold, loop)</dt><dd><tt>Checks&nbsp;for&nbsp;converging&nbsp;of&nbsp;the&nbsp;rank&nbsp;vector&nbsp;values,&nbsp;every&nbsp;loop</tt></dd></dl>
+ <dl><dt><a name="-draw_graph"><strong>draw_graph</strong></a>(edgelist, nodesizeratios, mapping)</dt><dd><tt>Plots&nbsp;the&nbsp;graph&nbsp;given&nbsp;the&nbsp;nodes,&nbsp;edges,&nbsp;and&nbsp;sizes&nbsp;the&nbsp;nodes&nbsp;wrt&nbsp;to&nbsp;their&nbsp;importance&nbsp;i.e&nbsp;rank<br>
+Plots&nbsp;only&nbsp;the&nbsp;nodes&nbsp;that&nbsp;have&nbsp;atleast&nbsp;1&nbsp;edge,&nbsp;to&nbsp;reduce&nbsp;the&nbsp;clutter.<br>
+Default&nbsp;red&nbsp;node&nbsp;circles,&nbsp;and&nbsp;black&nbsp;edges<br>
+If&nbsp;the&nbsp;webpageID&nbsp;is&nbsp;large,&nbsp;then&nbsp;only&nbsp;the&nbsp;number&nbsp;will&nbsp;be&nbsp;displayed,&nbsp;without&nbsp;its&nbsp;node&nbsp;circle<br>
+to&nbsp;reduce&nbsp;overlap&nbsp;of&nbsp;space</tt></dd></dl>
+ <dl><dt><a name="-getedges"><strong>getedges</strong></a>(nodelist)</dt><dd><tt>Gets&nbsp;all&nbsp;edges&nbsp;between&nbsp;the&nbsp;given&nbsp;nodes,&nbsp;from&nbsp;the&nbsp;database</tt></dd></dl>
+ <dl><dt><a name="-getimportance"><strong>getimportance</strong></a>(nodelist, file2)</dt><dd><tt>Gets&nbsp;the&nbsp;node&nbsp;size&nbsp;ratios&nbsp;wrt&nbsp;each&nbsp;other,&nbsp;from&nbsp;the&nbsp;ranked&nbsp;list&nbsp;of&nbsp;nodes,<br>
+and&nbsp;mutiplies&nbsp;them&nbsp;by&nbsp;a&nbsp;suitable&nbsp;scale&nbsp;for&nbsp;display</tt></dd></dl>
+ <dl><dt><a name="-getinlinks"><strong>getinlinks</strong></a>(nodei)</dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;inlinks&nbsp;to&nbsp;a&nbsp;specific&nbsp;node</tt></dd></dl>
+ <dl><dt><a name="-getmixedpopularnodes"><strong>getmixedpopularnodes</strong></a>(rankednodes, n)</dt><dd><tt>Returns&nbsp;n&nbsp;equally&nbsp;distributed&nbsp;nodes</tt></dd></dl>
+ <dl><dt><a name="-getpopularnodes"><strong>getpopularnodes</strong></a>(rankednodes, n)</dt><dd><tt>Returns&nbsp;n&nbsp;popular&nbsp;nodes</tt></dd></dl>
+ <dl><dt><a name="-getrandomnodes"><strong>getrandomnodes</strong></a>(n)</dt><dd><tt>Return&nbsp;n&nbsp;random&nbsp;nodes,&nbsp;given&nbsp;n</tt></dd></dl>
+ <dl><dt><a name="-getspecificnodes"><strong>getspecificnodes</strong></a>()</dt><dd><tt>Returns&nbsp;20&nbsp;specific&nbsp;nodes</tt></dd></dl>
+ <dl><dt><a name="-initialize"><strong>initialize</strong></a>()</dt><dd><tt>Initializes&nbsp;the&nbsp;rank&nbsp;vector&nbsp;to&nbsp;1/N,&nbsp;before&nbsp;starting&nbsp;the&nbsp;page&nbsp;algo</tt></dd></dl>
+ <dl><dt><a name="-listofdegrees"><strong>listofdegrees</strong></a>()</dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;the&nbsp;degrees&nbsp;of&nbsp;all&nbsp;nodes</tt></dd></dl>
+ <dl><dt><a name="-main"><strong>main</strong></a>()</dt><dd><tt>main&nbsp;:&nbsp;runs&nbsp;the&nbsp;page&nbsp;rank&nbsp;algo,<br>
+writes&nbsp;the&nbsp;ranked&nbsp;list,<br>
+gets&nbsp;different&nbsp;nodelists,&nbsp;edgelists&nbsp;and&nbsp;nodesizeratios,<br>
+and&nbsp;plots&nbsp;different&nbsp;graphs</tt></dd></dl>
+ <dl><dt><a name="-popularityclassification"><strong>popularityclassification</strong></a>(rnew)</dt><dd><tt>Returns&nbsp;the&nbsp;list&nbsp;of&nbsp;nodes&nbsp;ranked&nbsp;in&nbsp;the&nbsp;descending&nbsp;order&nbsp;of&nbsp;importance</tt></dd></dl>
+ <dl><dt><a name="-writeToHumanReadableFile"><strong>writeToHumanReadableFile</strong></a>(filename, index)</dt><dd><tt>Writes&nbsp;object&nbsp;to&nbsp;file&nbsp;in&nbsp;a&nbsp;readable&nbsp;form</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>B</strong> = 0.85<br>
+<strong>N</strong> = 6012<br>
+<strong>file</strong> = 'hollins.dat'</td></tr></table>
+</body></html>

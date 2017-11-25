@@ -1,0 +1,63 @@
+This program ranks all the web pages in any given dataset, according to the Page Algorithm.
+At the end, it displays the graphs of the nodes and their edges in these variations:
+
+Command to run the program:
+python PageRanker.py
+
+
+PACKAGES REQUIRED:
+
+Packages time, deciaml, linecache, collections, random, matplotlib, networkx have been used in this program.
+To install any required packages, type
+pip install <package-name>
+
+
+MY DATASET:
+
+I have used the corpus from:
+Kenneth Massey's Information Retrieval webpage:
+Hollins.edu webbot crawl from January 2004
+6012 nodes(webpages), 23875 edges(links)
+my data file - hollins.dat
+
+
+IMPLEMENTATION ON OTHER DATASETS:
+
+To implement the page rank algorithm on other datasets, 
+create a data file from the dataset in the following format:
+1st line - #ofnodes|#ofedges
+2nd to (N+1)th line - webpageID|URl
+(N+2)th line till the end - node|node (directed edges)
+Then the global variable file has to be altered, to the name of your data file
+
+
+RUNNING TIME : approximately 105s for the algo
+
+
+CONVERGENCE VALUE (the variable sumofdiffs in the program)
+I have found that setting the convergence value to 0.5 (which is done within the 1st iteration) itself gives pretty good results approximately. For more accuracy, you can reduce the s value to some 0.001 too, but that would take many iterations and the time taken will be #ofiterations*runningtime(as specified above), although the running time displayed in each run is the total running time of the algorithm.
+The plots are set to be drawn from the last iteration, by default.
+
+
+USER INPUT:
+Taking input n from the user for every graph individually,
+
+1. All 6012 nodes (pretty messy)
+2. n popular nodes
+    The 1st 10 nodes have only 6 nodes with edges inbetween them
+    The 1st 20 nodes have 11 nodes sharing edges
+    The 1st 30 nodes have 14 nodes sharing edges
+    The 1st 50 nodes have 31 nodes sharing edges
+3. 20 specific nodes
+    All of them have at least 1 common edge
+4. n random nodes
+    Higher the value of n, higher is the probability of getting nodes with common edges
+    On avg, for n=200 to 250, 30-40 nodes will be displayed
+
+All these graphs are displayed sequentially
+i.e the next opens on closing the previous one
+
+
+TO DRAW THE PLOTS OTHER DISTRIBUTIONS OF NODES
+
+
